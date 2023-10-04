@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Student Admission Form</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" rel="stylesheet">
+
+</head>
+<body>
+   <div class="container">
+        <h1>Student Admission Form</h1>
+        <form id="admission-form" action="AdmissionServlet" method="POST" enctype="multipart/form-data">
+            <input type="text" name="firstName" placeholder="First Name" required>
+            <input type="text" name="lastName" placeholder="Last Name" required>
+            <input type="email" name="email" placeholder="Email" required>
+            
+            <!-- Label and input for passport image -->
+            <label for="passport">Passport Image (JPG or PNG)</label>
+            <input type="file" name="passport" id="passport" accept=".jpg, .png" required>
+            
+            <!-- Label and input for certificates (PDF) -->
+            <label for="certificates">Certificates/Diploma (PDF)</label>
+            <input type="file" name="certificates" id="certificates" accept=".pdf" required>
+            
+            <input type="date" name="birthdate" placeholder="Date of Birth" required>
+            <input type="text" name="country" placeholder="Country" required>
+            <span id="password-error" class="error"></span>
+            <button type="submit">Submit</button>
+        </form>
+        <div id="languageSelector">
+    <i class="fas fa-language"></i> <!-- The language icon -->
+    <select id="languageDropdown">
+        <option value="en">English</option>
+        <option value="fr">French</option>
+        <option value="rw">Kinyarwanda</option>
+    </select>
+</div>
+
+    </div>
+    <script>
+    // Define language-specific translations
+     const translations = {
+            en: {
+                welcome: "Welcome to the Student Admission Dashboard",
+                // Other translations...
+            },
+            fr: {
+                welcome: "Bienvenue dans le tableau de bord d'admission des étudiants",
+                // Other translations...
+            },
+            rw: {
+                welcome: "Murakaza neza ku ishusho rya gushira hahise",
+                // Other translations...
+            }
+        };
+
+        // Function to change the language
+        function changeLanguage(languageCode) {
+            // Update content based on the selected language
+            document.getElementById("welcomeText").innerText = translations[languageCode].welcome;
+            // Update other elements with translations as needed
+        }
+</script>
+
+</body>
+</html>
